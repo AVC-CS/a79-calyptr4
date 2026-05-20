@@ -42,9 +42,9 @@ int deleteVector(vector<int> &number, int usernum)
         if (*iter == usernum)
         {
             number.erase(iter);
-            return -1;
+            return 0;
         }
-        return 0;
+        return -1;
     // TODO: erase EVERY occurrence of usernum from the vector.
 }
 
