@@ -39,18 +39,18 @@ void insertVector(vector<int> &number, int usernum)
 int deleteVector(vector<int> &number, int usernum)
 {
     int count = 0;
-    for (auto iter = number.begin(); iter != number.end(); iter++)
-    {
-        if (*iter == usernum)
-        {
+    auto iter = number.begin();
+    while (iter != number.end()){
+        if (*iter == usernum){
             iter = number.erase(iter);
             count++;
-            iter = number.begin();
         }
+        else
+            ++iter;
     }
-    if (count == 0)
+    if (count == 0){
         return -1;
-    else return count;
+    } else return usernum;
     // TODO: erase EVERY occurrence of usernum from the vector.
 }
 
