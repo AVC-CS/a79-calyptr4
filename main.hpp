@@ -29,11 +29,13 @@ void makeVector(vector<int> &number)
 void insertVector(vector<int> &number, int usernum)
 {
     vector<int>::iterator iter;
-    for (iter = number.begin(); iter != number.end(); iter++)
-    if (usernum < *iter){
+    for (iter = number.begin(); iter != number.end(); iter++){
+        if (usernum < *iter){
+        number.insert(iter, usernum);
+        return;
+        }
+    }
     number.insert(iter, usernum);
-    return;
-}
     // TODO: insert usernum into the sorted vector while keeping it sorted.
 }
 
