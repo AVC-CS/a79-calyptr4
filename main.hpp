@@ -29,28 +29,25 @@ void makeVector(vector<int> &number)
 void insertVector(vector<int> &number, int usernum)
 {
     vector<int>::iterator iter;
-    for (iter = number.begin(); iter != number.end(); iter++)
-    if (usernum < *iter)
-    break;
+    for (auto iter = number.begin(); iter != number.end(); iter++)
+    if (usernum < *iter){
     number.insert(iter, usernum);
+    return;
+}
     // TODO: insert usernum into the sorted vector while keeping it sorted.
 }
 
 int deleteVector(vector<int> &number, int usernum)
 {
     int count = 0;
-    auto iter = number.begin();
+    auto iter = find(number.begin(), number.end(), usernum);
     while (iter != number.end()){
-        if (*iter == usernum){
-            iter = number.erase(iter);
-            count++;
-        }
-        else
-            ++iter;
+        number.erase(iter);
+        count++;
+        iter = find(number.begin(), number.end(), usernum);
     }
-    if (count == 0){
-        return -1;
-    } else return usernum;
+    if (count == 0) return -1;
+    else return count;
     // TODO: erase EVERY occurrence of usernum from the vector.
 }
 
