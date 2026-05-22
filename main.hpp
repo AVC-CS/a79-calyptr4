@@ -29,7 +29,7 @@ void makeVector(vector<int> &number)
 void insertVector(vector<int> &number, int usernum)
 {
     vector<int>::iterator iter;
-    for (auto iter = number.begin(); iter != number.end(); iter++)
+    for (iter = number.begin(); iter != number.end(); iter++)
     if (usernum < *iter){
     number.insert(iter, usernum);
     return;
